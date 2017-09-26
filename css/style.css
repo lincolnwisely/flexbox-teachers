@@ -1,0 +1,83 @@
+/* ----- PARENT CONTAINER (Black border)----- */
+
+/* The .container class (black border) is set to display: flex because its three children (.box divs) need to be positioned evenly within the container. (justify-content: space-around; flex-wrap: wrap;)
+
+Try scaling the browser window to see the 'flex-wrap' property in action. Remove it from the parent class (.container) to see what happens when it's not set to flex-wrap: wrap.
+*/
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: 3px solid black;
+  width: 100%;
+}
+
+/* ----- NESTED .BOX CLASSES (Three main boxes - blue border) ----- */
+
+/* .Box class contains everything in blue border, including TWO nested divs, .top and .p-flex.
+
+Since .Box has two nested divs, .Box does not declare display:flex. The nested divs have their own flex properties that affect how those items are displayed.
+
+--- Tip: add 'display: flex' to the .box and see how it affects the children elements. ---
+
+.Box's nested divs (.top and .p-flex) are set to display: flex because THEIR children require flex positioning.
+*/
+
+.box {
+  border: 3px solid blue;
+  width: 400px;
+  margin: 20px auto;
+  /* A %-based width will never wrap, because it shrinks to fit that percentage of the container (black border). So I added a pixel-based width to the three .box classes (Blue border) */
+}
+
+/* ----- NESTED FLEX BOXES WITHIN EACH .BOX CLASS ----- */
+
+/* .Top class contains two children: the Image and Title (everything in pink border).
+
+Flex properties on this parent box (.top) are applied to its children: the Image and Title */
+
+.top {
+width: 100%;
+border: 2px solid hotpink;
+/* display: flex;
+justify-content: space-around; */
+/* align-items: center; */
+}
+
+.teacher {
+  display: flex;
+  flex-direction: column;
+}
+
+.top h2 {
+  display: inline-block;
+}
+
+img {
+  width: 150px;
+}
+
+/*
+.P-flex is the box containing two children, the paragraphs (<p>).
+
+By setting the parent, .p-flex, to display:flex, the paragraphs inside .p-flex will be display:flex.
+
+Set it to width of 100% so the two children (<p>s) can be set to 50% each.
+*/
+
+.p-flex {
+  border: 1px solid yellow;
+  display: flex;
+  width: 100%
+}
+
+
+p {
+  border: 1px solid orange;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 50%;
+  text-align: center;
+}
